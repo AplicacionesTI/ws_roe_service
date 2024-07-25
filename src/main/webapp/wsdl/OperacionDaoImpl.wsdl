@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://servicio.epy.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servicio.epy.com" xmlns:intf="http://servicio.epy.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://servicio.epy.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getOrdenResultados">
+    <complexType>
+     <sequence>
+      <element name="codigoOrden" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOrdenResultadosResponse">
+    <complexType>
+     <sequence>
+      <element name="getOrdenResultadosReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMuestras">
+    <complexType>
+     <sequence>
+      <element name="codigoRecepcion" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMuestrasResponse">
+    <complexType>
+     <sequence>
+      <element name="getMuestrasReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getMuestrasRequest">
+
+      <wsdl:part element="impl:getMuestras" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMuestrasResponse">
+
+      <wsdl:part element="impl:getMuestrasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrdenResultadosResponse">
+
+      <wsdl:part element="impl:getOrdenResultadosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrdenResultadosRequest">
+
+      <wsdl:part element="impl:getOrdenResultados" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OperacionDaoImpl">
+
+      <wsdl:operation name="getOrdenResultados">
+
+         <wsdl:input message="impl:getOrdenResultadosRequest" name="getOrdenResultadosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOrdenResultadosResponse" name="getOrdenResultadosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMuestras">
+
+         <wsdl:input message="impl:getMuestrasRequest" name="getMuestrasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMuestrasResponse" name="getMuestrasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OperacionDaoImplSoapBinding" type="impl:OperacionDaoImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getOrdenResultados">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOrdenResultadosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOrdenResultadosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMuestras">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMuestrasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMuestrasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OperacionDaoImplService">
+
+      <wsdl:port binding="impl:OperacionDaoImplSoapBinding" name="OperacionDaoImpl">
+
+         <wsdlsoap:address location="http://172.16.10.5:8081/ws_roe_service/services/OperacionDaoImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

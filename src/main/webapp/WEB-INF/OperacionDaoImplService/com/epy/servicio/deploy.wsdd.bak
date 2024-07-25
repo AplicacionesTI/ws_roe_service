@@ -1,0 +1,32 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from OperacionDaoImplService WSDL service -->
+
+  <service name="OperacionDaoImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servicio.epy.com"/>
+      <parameter name="wsdlServiceElement" value="OperacionDaoImplService"/>
+      <parameter name="schemaQualified" value="http://servicio.epy.com"/>
+      <parameter name="wsdlServicePort" value="OperacionDaoImpl"/>
+      <parameter name="className" value="com.epy.servicio.OperacionDaoImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="OperacionDaoImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getOrdenResultados" qname="operNS:getOrdenResultados" xmlns:operNS="http://servicio.epy.com" returnQName="retNS:getOrdenResultadosReturn" xmlns:retNS="http://servicio.epy.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:codigoOrden" xmlns:pns="http://servicio.epy.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getMuestras" qname="operNS:getMuestras" xmlns:operNS="http://servicio.epy.com" returnQName="retNS:getMuestrasReturn" xmlns:retNS="http://servicio.epy.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:codigoRecepcion" xmlns:pns="http://servicio.epy.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getMuestras getOrdenResultados"/>
+
+  </service>
+</deployment>
